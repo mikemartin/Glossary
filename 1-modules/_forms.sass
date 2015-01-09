@@ -1,0 +1,68 @@
++media(max-width $medium-screen)
+  textarea
+    height: 5em
+
++media($medium-screen)
+  .form-suggest ul
+    +outer-container
+    position: relative
+    margin-bottom: 1em
+
+    .gfield
+      +span-columns(6)
+
+    .text-definition
+      position: absolute
+      top: 0
+      right: 0
+
+      textarea
+        height: 12.15em
+
+.form-subscribe
+  +media($medium-screen)
+    width: 20em
+    margin: 0 auto
+
+    .form-actions, .gform_footer
+      .button
+        width: 100%
+
+
+.form-actions, .gform_footer
+  +display-flex
+  +justify-content(center)
+
+  .button
+    display: block
+    width: 100%
+
+    +media($medium-screen)
+      display: inline-block
+      width: auto
+
+.InputAddOn
+  +display-flex
+
+.InputAddOn-field
+  +flex(1)
+
+.InputAddOn-item
+  background-color: hsla(31, 15%, 50%, 0.1)
+  color: hsl(0, 0%, 40%)
+  font: inherit
+  font-weight: normal
+  box-shadow: none !important
+  &:hover, &:active
+    +transform(translate(0,0))
+
+.InputAddOn-field, .InputAddOn-item
+  padding: 0.5em 0.75em
+
+
+
+.validation_message
+  display: none
+
+.gform_ajax_spinner
+  display: none !important

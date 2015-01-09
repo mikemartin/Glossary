@@ -1,0 +1,63 @@
+@mixin anchor-offset
+  // Anchor offsets
+  &:before
+    content: ""
+    display: block
+    visibility: hidden
+    z-index: 0
+    position: relative
+    height: 60px
+    margin-top: -60px
+    +media($large-screen)
+      height: 228px
+      margin-top: -228px
+
+#glossary
+  //margin-bottom: 200px
+  +anchor-offset
+  
+  .word-list
+    +anchor-offset
+
+.word-list
+  //margin-bottom: 3em
+  position: relative
+
+  // Hide empty word lists
+  &.is-hidden
+    display: none
+    visibility: hidden
+
+  // Letter headings
+  .letter
+    +hex(18px)
+    margin-top: 2em !important
+    color: white !important
+
+    +media($large-screen)
+
+      +hex(22px)
+
+    &.blue
+      +hex-color($medium-blue)
+
+  ul
+    z-index: 1
+    position: relative
+    +media($large-screen)
+      +column-count(2)
+      +column-gap(7em)
+
+  li a
+    display: block
+    line-height: 3
+
+    color: white
+    border-bottom: 1px solid transparentize(white,.7)
+    padding-left: .5em
+
+    +media($large-screen)
+      //font-size: 1.5em
+
+    &:hover
+      background: transparentize(white,.9)

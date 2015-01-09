@@ -1,0 +1,103 @@
+@import 'word-list'
+
+body
+  margin: 0
+  min-width: 320px
+  //padding-top: 60px
+
+.container
+  width: 100% !important
+  +display-flex
+  min-height: 100vh
+  +flex-direction(column)
+
+.container.is-disabled
+  position: fixed
+
+.site-content
+  +flex(1)
+  /* stupid IE10 tweener syntax */
+  -ms-flex-preferred-size: auto
+  padding-bottom: 3em
+  //min-height: 660px
+
+  .single-glossary &
+    padding-bottom: 0
+
+.wrapper
+  max-width: 68em
+  margin-left: auto
+  margin-right: auto
+  padding: 1em
+
+  &.wrapper--word-list
+    max-width: 54em
+    padding-top: 0
+    +media($large-screen)
+      padding-bottom: 20em
+
+.smaller
+  margin: auto
+  max-width: 38em
+
+section, article
+  margin-bottom: 2em
+  padding-top: 1em
+  padding-bottom: 1em
+  position: relative
+
+.word-nav
+  padding: 3em 0
+
+
+
+// Media Element
+
++media($medium-screen)
+  .media
+    +display-flex
+    +align-items(flex-start)
+
+  .media-figure
+    margin-right: 1em
+
+  .media-body
+    +flex(1)
+
+  .media--reverse
+    & > .media-figure
+      order: 1
+      margin: 0 0 0 1em
+
+
+
+// IE9 Layout Fixes
+
+.no-flexbox
+  .letter-row
+    .letter
+      display: inline-block
+
+
+// Split Column
+
++media($medium-screen)
+  .row
+    +outer-container
+
+    .split-content
+      +span-columns(6)
+
+    .main-content
+      +span-columns(8)
+
+    .secondary-content
+      +span-columns(4)
+
+
+.center
+  text-align: center
+
+.share-inline
+  margin-bottom: 1.5em
+  height: 30px

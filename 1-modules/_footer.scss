@@ -1,0 +1,125 @@
+.footer {
+  $footer-background: white;
+  $footer-color: $dark-gray;
+  $footer-link-color: transparentize($blue, 0);
+  $footer-disclaimer-color: transparentize($footer-color, .3);
+  background: $footer-background;
+  padding: $base-line-height $gutter;
+  width: 100%;
+  color: $footer-disclaimer-color;
+  border-top: 1px solid lighten($light-gray,10);
+
+  text-align: center;
+
+  .branding {
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+    //padding-left: 3em;
+    display: inline-block;
+    text-align: left;
+
+    .branding-title {
+      font-weight: 600;
+      color: inherit;
+    }
+
+    .branding-content {
+      display: inline-block;
+      margin-left: .25em;
+    }
+
+    small {
+      color: #808080;
+    }
+
+    &:hover {
+      color: darken($blue, 15);
+      small {
+        color: darken(#808080, 15);
+      }
+    }
+  }
+
+  .glossicon-unbounce:before {
+    vertical-align:top;
+    font-size: 2.5rem;
+    line-height: .8;
+    margin-right: 0;
+  }
+
+  a {
+    color: $footer-link-color;
+
+    &:hover {
+      color: transparentize($footer-link-color, 0.3);
+    }
+  }
+  .footer-logo {
+    text-align: center;
+    margin-bottom: 2em;
+
+    img {
+      height: 3em;
+    }
+  }
+
+  .footer-links {
+    @include clearfix;
+    margin-bottom: $base-line-height;
+
+    @include media($medium-screen) {
+      @include shift(3);
+    }
+  }
+
+  ul {
+    margin-bottom: $base-line-height*2;
+
+    @include media($medium-screen) {
+      @include span-columns(3);
+      @include omega(3n);
+      @include clearfix;
+    }
+  }
+
+  li {
+    text-align: center;
+
+    @include media($medium-screen) {
+      text-align: left;
+    }
+  }
+
+  li a {
+    color: $footer-link-color;
+
+    &:hover {
+      color: transparentize($footer-color, 0);
+    }
+  }
+
+  li h3 {
+    color: $footer-color;
+    font-size: 1em;
+    font-weight: 800;
+    margin-bottom: .4em;
+  }
+
+  hr {
+    border: 1px solid transparentize($footer-disclaimer-color, .3);
+    margin: 0 auto $base-line-height;
+    width: 12em;
+  }
+
+  p {
+    color: $footer-disclaimer-color;
+    font-size: .95em;
+    line-height: 1;
+    margin: auto;
+  }
+
+  small {
+    font-size: .7em;
+  }
+}

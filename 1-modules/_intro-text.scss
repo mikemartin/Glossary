@@ -1,0 +1,142 @@
+.smaller .intro-text {
+  $intro-text-width: 32rem;
+
+  @include media ($medium-screen) {
+    width: $intro-text-width;
+  }
+}
+
+.intro-text {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0em;
+  padding-right: 1em;
+  z-index: 1;
+
+  .hero & {
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    @include media ($medium-screen) {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+  }
+  @include media ($medium-screen) {
+    margin-top: 2em;
+    text-align: center;
+    padding-left: 1em;
+  }
+
+  h1 {
+    font-family: $sans-serif;
+    margin: auto;
+    margin-top: .25em;
+    padding-bottom: .5em;
+    letter-spacing: em(-1px);
+    @include media ($medium-screen) {
+      font-size: 3.4em;
+    }
+
+    .hero & {
+      text-transform: uppercase;
+      font-size: $base-font-size * 1.5;
+      line-height: .9;
+      margin-top: .5em;
+
+      @include media ($medium-screen) {
+        font-size: $base-font-size * 2;
+      }
+    }
+
+  }
+
+  h2 {
+    font-weight: 100;
+    line-height: 1.3;
+    &.subtitle {
+      font-size: $base-font-size * 1.75;
+      margin-bottom: 1em;
+      @include media ($medium-screen) {
+        font-size: 2.5em;
+      }
+    }
+  }
+
+  h3 {
+    color: white;
+    font-size: 1em;
+    font-weight: 300;
+    text-transform: none;
+    letter-spacing: 0;
+    @include media($medium-screen) {
+      font-size: 1.1em;
+      line-height: 1.3
+    }
+  }
+
+  h4 {
+    color: lighten($base-font-color, 20);
+    font-size: 1.3em;
+    font-weight: 300;
+    line-height: 1.4em;
+    margin: 0 auto 1em;
+
+    @include media($medium-screen) {
+      font-size: 1.7em;
+      line-height: 1.35em;
+      margin: 0 auto 1em;
+    }
+
+  }
+
+  p {
+    margin: auto;
+    margin-bottom: 1em;
+    font-size: .9em;
+
+    @include media($medium-screen) {
+      font-size: 1em;
+      font-weight: normal;
+    }
+
+  }
+
+
+
+  .button {
+    font-size: 1.1em;
+    display: none;
+    @include media(min-height 500px) {
+      display: inline-block;
+    }
+  }
+
+  .button {
+    margin-top: 1em;
+  }
+
+}
+
+
+.intro-logo {
+  @include size(80px);
+  //z-index: 1000;
+  margin: 0 auto;
+  display: none;
+
+  .hero & {
+    display: block;
+  }
+
+  @include media (min-height 500px) {
+      @include size(100px);
+  }
+
+
+  @include media (min-height 850px) {
+    @include size(140px);
+    position: relative;
+    display: block;
+  }
+}

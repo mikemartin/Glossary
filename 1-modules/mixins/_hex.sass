@@ -1,0 +1,74 @@
+@mixin hex-color($color:$base-accent-color)
+  background: $color
+  &:before, &:after
+    border-top-color: $color
+    border-bottom-color: $color
+  &:hover, &.active
+    background: darken($color, 10)
+    color: transparentize(white, 0.1)
+    &:before, &:after
+      border-top-color: darken($color, 10)
+      border-bottom-color: darken($color, 10)
+
+@mixin hex-hover($color:$base-accent-color)
+  background: transparent
+  &:before, &:after
+    border-top-color: transparent
+    border-bottom-color: transparent
+  &:hover, &.active
+    background: $color
+    &:before, &:after
+      border-top-color: $color
+      border-bottom-color: $color
+
+@mixin hex($size: 30px, $color:$base-accent-color)
+  $height: $size
+  $width: $height * 1.733
+
+  &:after, &:before
+    content: ""
+    width: 0
+    position: absolute
+    left: 0
+    border-left: $width/2 solid transparent
+    border-right: $width/2 solid transparent
+
+  &:after
+    bottom: -$height/2
+    border-top: $height/2 solid $color
+
+  &:before
+    height: 0
+    border-bottom: $height/2 solid $color
+    top: -$height/2
+
+  &:hover
+    background: darken($color, 10)
+    color: transparentize(white, 0.1)
+
+    &:before, &:after
+      border-top-color: darken($color, 10)
+      border-bottom-color: darken($color, 10)
+
+  margin: $height/2 0 $height 0
+  +size($width $height)
+  position: relative
+  display: block
+  color: transparentize(white, 0.2)
+  font-size: em($height)
+  font-weight: 600
+  line-height: $height
+  text-align: center
+  cursor: pointer
+  background: $color
+
+  &.blue
+    +hex-color($blue)
+  &.green
+    +hex-color($green)
+  &.yellow
+    +hex-color($yellow)
+  &.purple
+    +hex-color($purple)
+  &.orange
+    +hex-color($orange)

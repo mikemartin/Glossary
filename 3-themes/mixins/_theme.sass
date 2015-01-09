@@ -1,0 +1,52 @@
+@mixin theme($color:$base-background-color)
+  background: $color
+  color: $base-font-color
+
+
+  // Navigation
+  header.navigation
+    a:hover, a.active-nav-item, .active-nav-item a
+      color: $color !important
+
+  // Word Page
+  &.single-glossary
+    background: tint($color,50)
+
+  .word
+    $text-color: shade($color,60)
+    color: desaturate($text-color,20)
+    h1, figcaption
+      color: shade($text-color,10)
+
+    a:hover
+      color: darken($color,10)
+    .word-tweetable
+      background: $color
+      color: white
+      &:hover
+        background-color: tint($color, 15)
+        color: white
+        .glossicon-twitter
+          background-color: tint($color, 15)
+          color: white
+    .glossicon-twitter
+      background: $color
+
+  // Actions
+  .actions
+    .action
+      color: tint($color,15)
+      &:hover
+        color: darken($color, 20)
+    .action-share
+      +hex-color(tint($color,15))
+
+  // Slideing Menus
+  .sliding-menu-content .mobile-nav li a
+    color: $color
+    &:hover
+      color: darken($color, 10)
+  .sliding-menu-content--search
+    background: transparentize($color,.05)
+
+    // @if $color

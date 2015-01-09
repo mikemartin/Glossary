@@ -1,0 +1,67 @@
+@import 'mixins/theme'
+
+body
+  +theme()
+
+.theme--green
+  +theme($green)
+
+.theme--orange
+  +theme($orange)
+
+.theme--yellow
+  +theme($yellow)
+  .sliding-menu-content--search
+    background: transparentize(shade($yellow,10),.05)
+
+  .word
+    $yellow-text: desaturate(shade($yellow,60),40)
+    color: desaturate($yellow-text,20)
+    h1, figcaption
+      color: shade($yellow-text,10)
+.theme--purple
+  +theme($purple)
+
+.theme--blue
+  +theme($blue)
+
+
+.hero
+  width: 100%
+  z-index: 0
+  background: url(../img/bg-glossary.svg) no-repeat 50% 100px
+  background-size: 200%
+
+  +media(max-height 480px)
+    background: none
+
+  +media(min-height 500px)
+    background-position: 50% 100%
+
+  +media(max-height 750px min-width $medium-screen)
+    background-position: 50% 100%
+    background-size: 953px 503px !important
+
+  +media(max-height 650px min-width $medium-screen)
+    background-position: 50% 100px !important
+
+  +media($medium-screen)
+    background-size: 100%
+
+  +media($large-screen)
+    background-position: 50% 100%
+
+.site-content
+  // width: 100%
+  // z-index: 0
+  // +background(url(../img/bg-glossary.svg) no-repeat center bottom)
+  // background-size: 200%
+
+.page-template-page-glossary-form-php, .page-template-glossarypage-form-php, .page-template-glossarypage-quiz-answers-php
+  +media($medium-screen-up)
+    +background(url(../img/bg-glossary-left.svg) no-repeat 0% 100px,  url(../img/bg-glossary-right.svg) no-repeat 100% 100px)
+    background-color: $blue
+    background-size: 150px
+
+  +media($large-screen)
+    background-size: 200px

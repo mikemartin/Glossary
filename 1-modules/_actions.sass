@@ -1,0 +1,39 @@
+
+.hero .actions, .word-list .actions
+  position: absolute
+  left: 0
+  top: 90px
+  padding-right: 1em
+  z-index: 100
+
+.word-list .actions
+  top: -.5em
+  padding-right: 0
+
+.actions
+  width: 100%
+  font-size: 1.2em
+  +clearfix
+
+  +media($large-screen)
+    display: none
+
+  .action
+    text-decoration: none
+    &.glossicon-back:before
+      margin-right: 0
+
+.action-share-wrap
+  float: right
+  position: relative
+
+.action-share
+  +hex(18px)
+  text-align: center
+
+  .glossicon-shareios:before
+    color: white
+    font-size: 16px
+    margin: 0
+    line-height: 1
+    vertical-align: baseline

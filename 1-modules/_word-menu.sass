@@ -1,0 +1,92 @@
+.word-menu
+  padding-top: 1em
+  padding-bottom: 1em
+
+  button
+    display: block
+    margin: 0 auto
+
+  .glossicon-home:before
+    color: transparentize(white, 0.2)
+    font-size: .9em
+    margin: 0
+    vertical-align: baseline
+
+    &:hover
+      color: transparentize(white, 0.1)
+
+.word-menu--horizontal
+  background: transparentize($dark-blue,0.1)
+  text-align: center
+  width: 100%
+  padding-top: 2em
+  padding-bottom: 2em
+  z-index: 3
+  display: none
+
+  +media($large-screen)
+    display: block
+    top: 60px
+
+    &.stuck
+      top: 60px
+      position: fixed
+
+    &:hover
+      .letter.active
+        background: transparent !important
+
+        &:before, &:after
+          border-top-color: transparent !important
+          border-bottom-color: transparent !important
+
+  p
+    font-size: em(14px)
+
+  .letter
+    +hex(18px)
+    font-weight: normal
+    &.blue
+      +hex-hover($blue)
+    &.green
+      +hex-hover($green)
+    &.yellow
+      +hex-hover($yellow)
+    &.purple
+      +hex-hover($purple)
+    &.orange
+      +hex-hover($orange)
+
+    &.is-disabled
+      +hex-color(transparent)
+
+  .letter-row .letter
+    background: transparent
+    margin-right: -.3em
+
+    &:before, &:after
+      border-top-color: transparent
+      border-bottom-color: transparent
+
+
+.letter
+  +hex(28px)
+
+  &.is-disabled
+    opacity: .25
+    pointer-events: none
+
+
+.letter-row
+  width: 100%
+  +display-box
+  +flex-flow(row wrap)
+  +justify-content(center)
+  +clearfix
+  z-index: 4
+  position: relative
+
+  .letter
+    font-weight: 600
+    margin-left: 6px
+    margin-bottom: 6px

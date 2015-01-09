@@ -1,0 +1,107 @@
+$sliding-menu-border-color: transparentize($light-gray,.5);
+$sliding-menu-background: white;
+$sliding-menu-color: $blue;
+$sliding-menu-border: 1px solid $sliding-menu-border-color;
+$sliding-menu-background-hover: white;
+$sliding-menu-color-hover: $blue;
+
+.sliding-menu-button {
+  @include button(simple, $base-background-color);
+  display: inline-block;
+  cursor: pointer;
+  font-size: $base-font-size;
+  margin-bottom: $base-line-height;
+  position: relative;
+  outline: none;
+
+  img {
+    height: 1.3em;
+  }
+}
+
+.sliding-menu-content {
+  @include position(fixed, 60px auto 0px 0px);
+  @include size(100% 100%);
+  @include transform(translateX(-100%));
+  @include transition(all .25s linear);
+  background: $sliding-menu-background;
+  z-index: 999998;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  color: $light-gray;
+  padding-bottom: 5em;
+
+  &.sliding-menu-content--search {
+    @include position(fixed, 0px auto 0px 0px);
+    @include transform(translateX(100%));
+    @include size(100% 100%);
+    //padding-top: 70px;
+
+    background: transparentize($blue,.05);
+
+    @include media($medium-screen) {
+       @include position(fixed, 60px auto 0px 0px);
+       padding-top: 0px;
+
+       header.navigation {
+        display: none
+      }
+    }
+
+    .word-list li a {
+      border-color: transparentize($light-gray,.7);
+      //color: $sliding-menu-color-hover;
+    }
+
+    .search-results h2 {
+      font-weight: normal;
+      line-height: 1.4;
+      color: white;
+
+      strong { display: block; }
+    }
+  }
+
+  .mobile-nav {
+    margin: 0 2em;
+  }
+
+  .mobile-nav li a {
+    border-bottom: $sliding-menu-border;
+    color: $sliding-menu-color;
+    display: block;
+    padding: 1em;
+    text-align: center;
+    font-size: 1.1em;
+
+    &:hover {
+      background-color: $sliding-menu-background-hover;
+      color: $sliding-menu-color-hover;
+    }
+
+  }
+
+  li:last-child a {
+    border-bottom: 0;
+  }
+
+  &.is-visible {
+    @include transform(translateX(0));
+  }
+}
+
+.menu-screen {
+  @include position(fixed, 60px auto 0px 0px);
+  @include transition;
+  //background: $sliding-menu-border-color;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 999998;
+
+  &.is-visible {
+    opacity: .4;
+    visibility: visible;
+  }
+}
+
+// Based on code by Diego Eis
